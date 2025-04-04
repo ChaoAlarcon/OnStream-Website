@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onstream</title>
+    <link rel="icon" href="Imágenes/icon-logo.png" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,624&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Estilos generales */
+        body {
+            font-family: 'kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121318;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Estilos de texto */
+        a {
+            font-size: 17px;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        button {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .texto-grande-presentación {
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        .texto-pequeño-presentación {
+            font-family: 'kanit', sans-serif;
+            padding: 10px;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        main h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        /* Estilos del encabezado */
+        .header {
+            background-color: #0A0B0D;
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Logo-container img {
+            height: 50px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #94F235;
+            color: #121318;
+        }
+
+        .canva1 {
+            width: 120%;
+            height: auto;
+            display: block;
+            margin-left: -100px;
+            align-items: center;
+            background: none;
+            margin-top: -29px;
+        }
+
+        .canva2 {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: linear-gradient(135deg, #94F235, #95D930, #DCF235);
+            margin-top: -40px;
+            z-index: 1;
+        }
+
+        /* Estilos de la sección hero */
+        .hero {
+            padding: 50px;
+            background: linear-gradient(135deg, #94F235, #95D930, #DCF235);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta {
+            background: white;
+            color: #95D930;
+            padding: 15px 30px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 50px;
+            box-shadow: 2px 2px 2px rgb(121, 121, 121);
+        }
+
+        /* Estilos de la sección de explicación */
+        .explicación {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 50px;
+        }
+
+        .explicación-texto {
+            width: 50%;
+            text-align: left;
+            font-size: 20px;
+            color: white;
+            margin-top: -100px;
+        }
+
+        .explicación-texto h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .explicación-texto p {
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        .explicación-imagen {
+            height: 10px;
+            width: auto;
+            margin-top: -150px;
+            z-index: 2;
+        }
+
+        /* Estilos de la sección de por qué elegir OnStream */
+        .porque {
+            padding: 30px;
+            padding-left: 80px;
+            color: white;
+            text-align: left;
+            font-size: 20px;
+            margin-top: -20px;
+            margin-bottom: -50px;
+            background: linear-gradient(135deg, #94F235, #95D930, #DCF235);
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        /* Estilos de la sección de características */
+        .features {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 95%;
+            margin-left: -4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+        }
+
+        .slides {
+            margin-left: 1400px;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 200%;
+            scroll-snap-type: x mandatory;
+        }
+
+        .feature-box {
+            color: white;
+            background: #333740;
+            padding: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            overflow: hidden;
+            flex-shrink: 0;
+            width: calc(100% / 6);
+            scroll-snap-align: start;
+            transition: transform 0.3s;
+        }
+
+        .feature-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .feature-box p {
+            font-size: 16px;
+            text-align: left;
+            color: #ccc;
+        }
+
+        .feature-box img {
+            width: 80px;
+            height: auto;
+            justify-content: right;
+            display: flex;
+            margin-left: 350px;
+            margin-top: -40px;
+        }
+
+        .prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+            left: 10px;
+        }
+
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            right: 10px;
+        }
+
+        /* Estilos de la sección de descarga */
+        .section-download {
+            background: #121318;
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .section-download h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .section-download p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-download .cta {
+            background: white;
+            color: #95D930;
+            padding: 15px 30px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 50px;
+            box-shadow: 2px 2px 2px rgb(121, 121, 121);
+        }
+
+        .section-download .container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: -30px;
+        }
+
+        .section-download .download-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .section-download .dl-ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .section-download .dlu-item {
+            background: #333740;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .section-download .dlu-icon {
+            width: 10px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .dlu-icon img {
+            width: 200px;
+            height: auto;
+            align-items: center;
+            margin-left: -93px;
+            margin-bottom: 20px;
+        }
+
+        .section-download .dlu-detail {
+            text-align: center;
+        }
+
+        .section-download .dlu-btn {
+            margin-bottom: 20px;
+        }
+
+        .descarga {
+            margin-top: 30px;
+            padding: 50px;
+            color: white;
+        }
+
+        .descarga h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .descarga p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta2 {
+            background: white;
+            width: 105%;
+            color: #95D930;
+            padding: 15px 30px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: -50px;
+            margin-left: -5px;
+            box-shadow: 2px 2px 2px rgb(121, 121, 121);
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background: #0A0B0D;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        footer button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer button img {
+            width: 30px;
+            height: auto;
+        }
+
+        /* Media queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-container {
+                margin-top: 10px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .explicación {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .explicación-texto, .explicación-imagen {
+                width: 100%;
+                text-align: center;
+            }
+
+            .explicación-imagen img[src="Imágenes/os-phone.png"] {
+                display: none;
+            }
+
+            .canva1[src="Imágenes/canvas.png"], .canva2[src="Imágenes/canvas2.png"] {
+                display: none;
+            }
+
+            .explicación-texto img[src="Imágenes/appicon.png"] {
+                display: none;
+            }
+
+            .explicacion-texto p, .explicación-texto h2, .explicación-texto h1 {
+                margin-top: 100px;
+                padding-top: 100px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .porque {
+                margin-top: 100px;
+                padding-top: 100px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .features {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .feature-box {
+                width: 87%;
+                margin: 10px 0;
+            }
+
+            .feature-box img {
+                margin-left: 250px;
+                width: 60px;
+                height: auto;
+            }
+
+             .feature-box h2{
+                font-size: 17px;
+            }
+
+            .feature-box p {
+                font-size: 14px;
+            }
+
+            .slides {
+                flex-direction: column;
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .prev, .next {
+                display: none;
+            }
+
+            .section-download .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .dlu-item:nth-child(1), .dlu-item:nth-child(3) {
+                display: none;
+            }
+
+            .dlu-item {
+                width: 100%;
+            }
+
+            .dlu-icon img {
+                width: 100px;
+                height: auto;
+                margin-right: -100px;
+                align-items: center;
+            }
+
+            footer {
+                font-size: 16px;
+            }
+
+            html, body {
+                overflow-x: hidden;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li {
+                display: block;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 10px;
+            }
+    
+        }
+
+        
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelector('.slides');
+            const slide = document.querySelectorAll('.feature-box');
+            const prev = document.querySelector('.prev');
+            const next = document.querySelector('.next');
+            let index = 0;
+
+            function showSlide(n) {
+                index += n;
+                if (index < 0) {
+                    index = slide.length - 1;
+                } else if (index >= slide.length) {
+                    index = 0;
+                }
+                slides.style.transform = 'translateX(' + (-index * 100 / slide.length) + '%)';
+            }
+
+            prev.addEventListener('click', function() {
+                showSlide(-1);
+            });
+
+            next.addEventListener('click', function() {
+                showSlide(1);
+            });
+        });
+
+        const slides = document.querySelector('.slides');
+        const scrollAmount = 300;
+        slides.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
+
+        function descargarArchivo() {
+            const enlace = document.createElement('a');
+            enlace.href = 'Archivos/onstream-android.zip'; 
+            enlace.download = 'OnStream para Android'; 
+            enlace.click();
+        }
+
+        function descargarArchivo2() {
+            const enlace = document.createElement('a');
+            enlace.href = 'Archivos/onstream-android-tv.zip';
+            enlace.download = 'OnStream para Android TV'; 
+            enlace.click();
+        }
+    </script>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="Logo-container">
+            <img src="Imágenes/logo.png" alt="Logo">
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Acerca de</a></li>
+                    <li><a href="documentacionfunciones.html">Funciones</a></li>
+                    <li><a href="registro.html">Registro</a></li>
+                    <li><a href="avisolegal.html">Aviso Legal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección hero -->
+    <section class="hero">
+        <h1 class="texto-grande-presentación">Aplicación gratuita para películas y series TV en HD en cualquier dispositivo</h1>
+        <p class="texto-pequeño-presentación">¿Estás buscando una aplicación para ver películas con amigos y familiares?<br> OnStream es la mejor aplicación para películas y programas de TV.<br>Todo de forma gratuita y todo de forma legal.</p>
+        <button class="cta" onmouseover="this.style.backgroundColor='#B0B0B0'; this.style.color='#121318';" onmouseout="this.style.backgroundColor='white'; this.style.color='#95D930';" onclick="document.getElementById('section-download').scrollIntoView({ behavior: 'smooth', block: 'start', });">Empieza ahora</button>
+    </section>
+    <img class="canva1" src="Imágenes/canvas.png">
+
+    <!-- Sección de explicación -->
+    <section class="explicación">
+        <div class="explicación-texto">
+            <img src="Imágenes/appicon.png" alt="Logo" style="width: 100px; height: auto;">
+            <h2>¿Qué es OnStream?</h2>
+            <p> OnStream es una aplicación gratuita para películas y programas de televisión,
+                donde puedes Míralo gratis, de forma ilimitada. Ninguno de los su información es necesaria ya que no necesita una cuenta para ver miles de películas y programas de televisión se muestra en nuestro sitio.<br>
+                <br>Descargue la aplicación, busque la película o el programa de su elección, presione el botón de reproducción y estará Todo listo.<br>
+                <br>OnStream proporciona una fuente ilimitada de entretenimiento, incluido el contenido de las principales plataformas como Youtube, Twitch e incluso canales de televisión en vivo. Si no encuentras algo de tu gusto, haga una solicitud, siempre estamos ansiosos por recorrer Internet para su satisfacción.
+            </p>
+        </div>
+        <div class="explicación-imagen">
+            <img src="Imágenes/os-phone.png" alt="Imagen de la aplicación" style="width: 300px; height: auto;">
+        </div>
+    </section>
+    <img class="canva2" src="Imágenes/canvas2.png">
+
+    <!-- Sección de por qué elegir OnStream -->
+    <section class="porque">
+        <h2>¿Por qué elegir OnStream?</h2>
+        <p>OnStream es la mejor aplicación para ver películas y programas de televisión. Con una interfaz fácil de usar, alta calidad y seguridad garantizada, OnStream es la mejor opción para ver películas y programas de televisión en cualquier dispositivo.</p>
+    </section>
+    <!-- Sección de características -->
+    <section class="features">
+        <button class="prev">❮</button>
+        <div class="slides">
+            <!-- Tus elementos de carrusel aquí -->
+            <div class="feature-box">
+                <h2>Gratis sin inscripción</h2>
+                <img src="Imágenes/target.svg" alt="Gratis sin inscripción">
+                <p>On Stream es totalmente gratis, incluso puedes transmitir sin una cuenta. No hay tarifas ocultas.</p>
+            </div>
+            <div class="feature-box">
+                <h2>Multi-subtítulos</h2>
+                <img src="Imágenes/subtitle.svg" alt="Gratis sin inscripción">
+                <p>Ver películas y programas extranjeros nunca es tan fácil. Solo tienes que elegir el idioma que desees y explorar nuevas culturas.</p>
+            </div>
+            <div class="feature-box">
+                <h2>Múltiples opciones<br> de servidor</h2>
+                <img src="Imágenes/servers.svg" alt="Gratis sin inscripción" style="margin-top: -70px">
+                <p>Para que su experiencia de visualización sea más fluida, no solo ofrecemos un servidor de Torrents, sino también otras opciones bien seleccionadas de otros sitios / servicios.</p>
+            </div>
+            <div class="feature-box">
+                <h2>Descarga tus favoritos<br> para verlos sin conexión</h2>
+                <img src="Imágenes/download.svg" alt="Gratis sin inscripción" style="margin-top: -70px">
+                <p>Guarde sus películas y programas para verlos en cualquier momento y en cualquier lugar, con o sin Internet.</p>
+            </div>
+            <div class="feature-box">
+                <h2>Lista de favoritos<br> personalizada</h2>
+                <img src="Imágenes/wishlist.svg" alt="Gratis sin inscripción" style="margin-top: -70px">
+                <p>Lleva un registro de las películas y programas que amas! Es posible que quieras volver a verlo o compartirlo con las personas que te importan más adelante.</p>
+            </div>
+            <div class="feature-box">
+                <h2>Últimas actualizaciones<br> diarias</h2>
+                <img src="Imágenes/video.svg" alt="Gratis sin inscripción" style="margin-top: -70px">
+                <p>Ven a OnStream cada vez que se estrene una nueva película o episodio. Somos de los más rápidos en ayudarte a saciar tu sed.</p>
+            </div>
+        </div>
+        <button class="next">❯</button>
+    </section>
+    <!-- Sección de descarga -->
+    <section class="descarga" id="section-download">
+        <h2>Descarga OnStream ahora</h2>
+        <p>Descarga OnStream ahora y disfruta de películas y programas de televisión en HD en android y android TV.</p>
+        
+        <div class="section section-download" >
+    <div class="container">
+        
+        <div class="download-list">
+            <div class="dl-ul">
+                <div class="dlu-item">
+                    <div class="dlu-icon"><img src="Imágenes/smarttv.svg"></div>
+                    <div class="dlu-detail">
+                        <div class="dlu-btn mb-4">
+                            <button onclick="descargarArchivo2()" class="cta2" onmouseover="this.style.backgroundColor='#B0B0B0'; this.style.color='#121318';" onmouseout="this.style.backgroundColor='white'; this.style.color='#95D930';">
+                                <i class="fab fa-android mr-2"></i>OnStream for android TV</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dlu-item">
+                    <div class="dlu-icon"><img src="Imágenes/smartphone.svg"></div>
+                    <div class="dlu-detail">
+                        <div class="dlu-btn mb-4">
+                            <button onclick="descargarArchivo()" class="cta2" onmouseover="this.style.backgroundColor='#B0B0B0'; this.style.color='#121318';" onmouseout="this.style.backgroundColor='white'; this.style.color='#95D930';">
+                            <i class="fab fa-android mr-2"></i>OnStream for Android</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dlu-item hidden">
+                    <div class="dlu-icon"><img src="Imágenes/smartphone.svg"></div>
+                    <div class="dlu-detail">
+                        <div class="dlu-btn mb-4" >
+                             <button onclick="window.location.href='https://youtu.be/XQoHI5P2uc8'" class="cta2" onmouseover="this.style.backgroundColor='#B0B0B0'; this.style.color='#121318';" onmouseout="this.style.backgroundColor='white'; this.style.color='#95D930';"><i class="fab fa-android mr-2"></i>OnStream for iOs</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+     <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+            <img src="Imágenes/arrowup.svg" alt="Volver arriba" style="width: 30px; height: auto; filter: invert(1);">
+        </button>
+        <p>Copyright &copy; OnStream 2025</p>
+        <p style="color: gray; font-size: 14px;">OnStream - Vea gratis películas y programas de televisión en línea en alta definición en cualquier dispositivo</p>
+        <button onclick="window.location. href='https://t.me/+vZcC0lWRZAQ0ZGM1' "><img src="Imágenes/telegram.png" alt="telegram"></button>
+       
+       
+    </footer>
+
+</body>
+</html>

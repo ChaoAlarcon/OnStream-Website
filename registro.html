@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Imágenes/icon-logo.png" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,624&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        
+        /* Estilos generales */
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121318;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Estilos del texto */
+        a {
+            font-family: 'kanit', sans-serif;
+            font-size: 17px;
+        }
+
+        .texto-grande-presentación {
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        .texto-pequeño-presentación {
+            font-family: 'Kanit', sans-serif;
+            padding: 10px;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        main h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        /* Estilos del encabezado */
+        .header {
+            background-color: #0A0B0D;
+            color: #fff;
+             font-family: 'Kanit', sans-serif;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .Logo-container img {
+            height: 50px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #94F235;
+            color: #121318;
+        }
+
+        /* Estilos del formulario */
+        main {
+            padding: 50px;
+            background: linear-gradient(135deg, #94F235, #95D930, #DCF235);
+            color: white;
+        }
+
+        form {
+            background: #333740;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        label {
+            font-family: 'kanit', sans-serif;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: left;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            font-family: 'kanit', sans-serif;
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            font-family: 'kanit', sans-serif;
+            background: #95D930;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px rgb(121, 121, 121);
+        }
+
+        button[type="submit"]:hover {
+            background: #94F235;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            font-family: 'kanit', sans-serif;
+            background: #0A0B0D;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        footer button {
+            font-family: 'kanit', sans-serif;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer button img {
+            width: 30px;
+            height: auto;
+        }
+
+        /* Media queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-container {
+                margin-top: 10px;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            form {
+                width: 80%;
+                padding: 10px;
+                padding-right: 15px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: calc(100% - 10px);
+                padding: 8px;
+                margin-bottom: 15px;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+                padding: 10px;
+            }
+
+            footer {
+                font-size: 16px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li {
+                display: block;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="Logo-container">
+            <img src="Imágenes/logo.png" alt="Logo">
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acerca de</a></li>
+                    <li><a href="documentacionfunciones.html">Funciones</a></li>
+                    <li><a href="registro.html" class="active">Registro</a></li>
+                    <li><a href="avisolegal.html">Aviso Legal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <h1>Registro</h1>
+        <form action="http://www.cursos-diseño.es/mostrar.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+            
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Registrarse</button>
+        </form>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+            <img src="Imágenes/arrowup.svg" alt="Volver arriba" style="width: 30px; height: auto; filter: invert(1);">
+        </button>
+        <p>Copyright &copy; OnStream 2025</p>
+        <p style="color: gray; font-size: 14px;">OnStream - Vea gratis películas y programas de televisión en línea en alta definición en cualquier dispositivo</p>
+        <button onclick="window.location.href='https://t.me/+vZcC0lWRZAQ0ZGM1'">
+            <img src="Imágenes/telegram.png" alt="telegram">
+        </button>
+    </footer>
+</body>
+</html>

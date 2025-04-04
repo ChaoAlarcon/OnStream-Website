@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de Funciones - Onstream</title>
+    <link rel="icon" href="Imágenes/icon-logo.png" type="image/png">
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,624&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        
+        /* Estilos generales */
+        body {
+            font-family: 'kanit', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121318;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Estilos del texto */
+        main h2 {
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        a {
+            font-family: 'kanit', sans-serif;
+            font-size: 17px;
+        }
+
+        .texto-grande-presentación {
+            font-family: 'kanit', sans-serif;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        .texto-pequeño-presentación {
+            font-family: 'kanit', sans-serif;
+            padding: 10px;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        main h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 2px rgb(80, 80, 80);
+        }
+
+        /* Estilos del encabezado */
+        .header {
+            background-color: #0A0B0D;
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'kanit', sans-serif;
+        }
+
+        .Logo-container img {
+            height: 50px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #94F235;
+            color: #121318;
+        }
+
+        /* Estilos del contenido principal */
+        main {
+            padding: 50px;
+            background: linear-gradient(135deg, #94F235, #95D930, #DCF235);
+            color: white;
+        }
+
+        .carousel-container {
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .feature-box {
+            background: #333740;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            transition: transform 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-box img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .feature-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'kanit', sans-serif;
+        }
+
+        .feature-box p {
+            font-size: 16px;
+        }
+
+        iframe {
+            max-width: 100%;
+            align-self: center;
+            align-items: center;
+            justify-content: center;
+            width: 70%;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background: #0A0B0D;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        footer button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer button img {
+            width: 30px;
+            height: auto;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
+        }
+
+        /* Media queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-container {
+                margin-top: 10px;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            form {
+                width: 100%;
+                padding: 10px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: calc(100% - 10px);
+                padding: 8px;
+                margin-bottom: 15px;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+                padding: 10px;
+            }
+
+            footer {
+                font-size: 16px;
+            }
+
+            .slides {
+                flex-direction: column;
+            }
+
+            .feature-box {
+                flex: 0 0 auto;
+                margin: 10px auto;
+                width: 90%;
+            }
+
+            iframe {
+                width: 100%;
+                height: 210px;
+            }
+
+            .carousel-button {
+                display: none;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li {
+                display: block;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="Logo-container">
+            <img src="Imágenes/logo.png" alt="Logo">
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Acerca de</a></li>
+                    <li><a href="documentacionfunciones.html" class="active">Funciones</a></li>
+                    <li><a href="registro.html">Registro</a></li>
+                    <li><a href="avisolegal.html">Aviso Legal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <h1>Funciones de OnStream</h1>
+        <div class="carousel-container">
+            <button class="carousel-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+            <div class="slides">
+                <!-- Elementos del carrusel -->
+                <div class="feature-box">
+                    <h2>Gratis sin inscripción</h2>
+                    <img src="Imágenes/target.svg" alt="Gratis sin inscripción">
+                    <p>On Stream es totalmente gratis, incluso puedes transmitir sin una cuenta. No hay tarifas ocultas.</p>
+                </div>
+                <div class="feature-box">
+                    <h2>Multi-subtítulos</h2>
+                    <img src="Imágenes/subtitle.svg" alt="Multi-subtítulos">
+                    <p>Ver películas y programas extranjeros nunca es tan fácil. Solo tienes que elegir el idioma que desees y explorar nuevas culturas.</p>
+                </div>
+                <div class="feature-box">
+                    <h2>Múltiples opciones de servidor</h2>
+                    <img src="Imágenes/servers.svg" alt="Múltiples opciones de servidor">
+                    <p>Para que su experiencia de visualización sea más fluida, no solo ofrecemos un servidor de Torrents, sino también otras opciones bien seleccionadas de otros sitios / servicios.</p>
+                </div>
+                <div class="feature-box">
+                    <h2>Descarga tus favoritos para verlos sin conexión</h2>
+                    <img src="Imágenes/download.svg" alt="Descarga tus favoritos para verlos sin conexión">
+                    <p>Guarde sus películas y programas para verlos en cualquier momento y en cualquier lugar, con o sin Internet.</p>
+                </div>
+                <div class="feature-box">
+                    <h2>Lista de favoritos personalizada</h2>
+                    <img src="Imágenes/wishlist.svg" alt="Lista de favoritos personalizada">
+                    <p>Lleva un registro de las películas y programas que amas! Es posible que quieras volver a verlo o compartirlo con las personas que te importan más adelante.</p>
+                </div>
+                <div class="feature-box">
+                    <h2>Últimas actualizaciones diarias</h2>
+                    <img src="Imágenes/video.svg" alt="Últimas actualizaciones diarias">
+                    <p>Ven a OnStream cada vez que se estrene una nueva película o episodio. Somos de los más rápidos en ayudarte a saciar tu sed.</p>
+                </div>
+            </div>
+            <button class="carousel-button right" onclick="scrollCarousel(1)">&#10095;</button>
+        </div>
+        <section id="video">
+            <h2>Vídeo Explicativo</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kJX22v00_ww?si=CAqla1ZAdl3J3JsZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+            <img src="Imágenes/arrowup.svg" alt="Volver arriba" style="width: 30px; height: auto; filter: invert(1);">
+        </button>
+        <p>Copyright &copy; OnStream 2025</p>
+        <p style="color: gray; font-size: 14px;">OnStream - Vea gratis películas y programas de televisión en línea en alta definición en cualquier dispositivo</p>
+        <button onclick="window.location.href='https://t.me/+vZcC0lWRZAQ0ZGM1'">
+            <img src="Imágenes/telegram.png" alt="telegram">
+        </button>
+    </footer>
+
+    <!-- Script para el carrusel -->
+    <script>
+        function scrollCarousel(direction) {
+            const slides = document.querySelector('.slides');
+            const scrollAmount = 300; 
+            slides.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
